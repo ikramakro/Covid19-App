@@ -8,11 +8,9 @@ class SplashServices {
   Future<UserModel> getuser() => UserViewModel().getUser();
   void checkAuthentication(BuildContext context) {
     getuser().then((value) {
-      if (kDebugMode) {
-        print('=====>>>>>>>${value.token.toString()}');
-      }
+      if (kDebugMode) {}
       if (value.token.toString() == 'null' || value.token.toString() == '') {
-        Navigator.pushNamed(context, RoutesName.login);
+        Navigator.pushNamed(context, RoutesName.onbording);
       } else {
         Navigator.pushNamed(context, RoutesName.home);
       }

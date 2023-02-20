@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:api_boilerplate/view_model/splash_services.dart';
 import 'package:flutter/material.dart';
 
@@ -13,14 +15,25 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-
-    splashServices.checkAuthentication(context);
+    Timer(
+      const Duration(seconds: 8),
+      () {
+        splashServices.checkAuthentication(context);
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text("Splash Screen")),
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+          child: SizedBox(
+        height: 200,
+        width: 300,
+        child: Image.network(
+            'http://yorkgraphicdesigners.co.uk/wp-content/uploads/2020/04/coronavirus_logo-2.jpg'),
+      )),
     );
   }
 }

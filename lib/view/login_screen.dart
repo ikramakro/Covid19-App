@@ -1,3 +1,4 @@
+import 'package:api_boilerplate/utils/constant/textstyle.dart';
 import 'package:api_boilerplate/utils/routes/routes_name.dart';
 import 'package:api_boilerplate/utils/utils.dart';
 import 'package:api_boilerplate/view_model/auth_view_model.dart';
@@ -45,6 +46,21 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                const Text(
+                  'Login With The Follwing credentials',
+                  style: extraLargeText,
+                ),
+                const Text(
+                  'Email: eve.holt@reqres.in',
+                  style: largeText,
+                ),
+                const Text(
+                  'Password: pistol',
+                  style: largeText,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
                 TextFormField(
                   controller: emailcontroller,
                   keyboardType: TextInputType.emailAddress,

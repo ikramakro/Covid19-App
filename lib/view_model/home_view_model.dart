@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 
 class HomeviewModel with ChangeNotifier {
   final myrepo = HomeRepositry();
-  ApiResponse<PostModel> postlist = ApiResponse.loading();
-  setPostList(ApiResponse<PostModel> response) {
+  ApiResponse<AllCasesModel> postlist = ApiResponse.loading();
+  setPostList(ApiResponse<AllCasesModel> response) {
     postlist = response;
     notifyListeners();
   }
@@ -14,7 +14,7 @@ class HomeviewModel with ChangeNotifier {
   Future<void> fetchpost() async {
     setPostList(ApiResponse.loading());
 
-    myrepo.fetchpostApi().then((value) {
+    myrepo.fetchgetApi().then((value) {
       setPostList(ApiResponse.completed(value));
     }).onError((error, stackTrace) {
       setPostList(ApiResponse.error('====>>>>>${error.toString()}'));
